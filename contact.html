@@ -10,6 +10,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    html,body{overflow-x:hidden;max-width:100%}
+    .contact-info-item{flex-wrap:nowrap;align-items:flex-start}
+    .contact-info-item>div{min-width:0;flex:1 1 0}
+    .contact-info-value{overflow-wrap:anywhere;word-break:break-word;min-width:0}
+    .contact-ctas .btn-whatsapp,.contact-ctas .btn{width:100%;box-sizing:border-box;justify-content:center;text-align:center}
+    .contact-form-wrap{min-width:0;max-width:100%;box-sizing:border-box}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
+    @media(max-width:600px){.form-row{grid-template-columns:1fr}}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4.5rem}
+    @media(max-width:1024px){.contact-grid{grid-template-columns:1fr;gap:3rem}}
+    div[style*="border-left:3px solid var(--red)"]{box-sizing:border-box;max-width:100%;word-break:break-word}
+  </style>
 </head>
 <body>
 
