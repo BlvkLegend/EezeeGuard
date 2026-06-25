@@ -258,7 +258,7 @@ h1, h2, h3, h4 {
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--nav-height));
   display: flex;
   align-items: center;
   background: var(--black);
@@ -293,7 +293,6 @@ h1, h2, h3, h4 {
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  padding-bottom: 7rem; /* room for trust bar */
 }
 .hero-content {
   max-width: 680px;
@@ -832,7 +831,8 @@ h1, h2, h3, h4 {
 .vm-text { font-size: 0.92rem; color: rgba(255,255,255,0.58); line-height: 1.75; }
 .training-section { padding: var(--space-3xl) 0; background: var(--gray-100); }
 .training-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem; margin-top: var(--space-xl);
 }
 .training-card {
@@ -917,8 +917,11 @@ h1, h2, h3, h4 {
   border: 1px solid var(--gray-200);
   margin-bottom: 0.85rem;
   transition: var(--transition);
+  min-width: 0;
+  flex-wrap: wrap;
 }
 .contact-info-item:hover { border-color: var(--red); }
+.contact-info-item > div { min-width: 0; flex: 1 1 0; }
 .contact-info-icon {
   width: 42px; height: 42px;
   background: var(--black);
@@ -931,12 +934,18 @@ h1, h2, h3, h4 {
   font-weight: 700; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.2rem;
 }
-.contact-info-value { font-size: 0.9rem; color: var(--black); line-height: 1.5; }
+.contact-info-value {
+  font-size: 0.9rem; color: var(--black); line-height: 1.5;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 .contact-info-value a { color: var(--black); transition: var(--transition); }
 .contact-info-value a:hover { color: var(--red); }
 .contact-ctas { display: flex; gap: 0.65rem; margin-top: 1.25rem; flex-direction: column; }
 .btn-whatsapp {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
@@ -1004,6 +1013,9 @@ h1, h2, h3, h4 {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .readiness-header { grid-template-columns: 1fr; }
+  .training-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .about-story-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
   :root { --space-3xl: 4rem; --space-2xl: 3rem; }
